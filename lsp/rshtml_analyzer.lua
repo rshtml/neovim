@@ -1,5 +1,7 @@
+local rshtml = require("rshtml")
+
 return {
-  cmd = { 'rshtml-analyzer', '--stdio' },
+  cmd = { rshtml.server_name, '--stdio' },
   filetypes = { 'rshtml' },
   root_markers = { 'Cargo.toml', 'Cargo.lock' },
   single_file_support = true,
