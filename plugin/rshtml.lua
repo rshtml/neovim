@@ -1,4 +1,4 @@
-local rshtml_group = vim.api.nvim_create_augroup("RsHtml", { clear = true })
+local rshtml_group = vim.api.nvim_create_augroup("rshtml", { clear = true })
 
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   group = rshtml_group,
