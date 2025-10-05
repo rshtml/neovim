@@ -1,7 +1,3 @@
--- local rshtml = require("rshtml")
-
--- rshtml.install_lsp()
-
 local rshtml_group = vim.api.nvim_create_augroup("RsHtml", { clear = true })
 
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
