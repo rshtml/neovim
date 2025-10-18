@@ -3,7 +3,7 @@ local server_name = vim.fn.has("win32") == 1 and
 
 return {
   cmd = { server_name, '--stdio' },
-  filetypes = { 'rshtml' },
+  filetypes = { 'html' },
   root_markers = { 'Cargo.toml', 'Cargo.lock' },
   single_file_support = true,
 }
