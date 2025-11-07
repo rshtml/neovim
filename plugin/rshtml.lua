@@ -1,28 +1,27 @@
-local rshtml_group = vim.api.nvim_create_augroup("rshtml", { clear = true })
+vim.api.nvim_create_autocmd('User', { pattern = 'TSUpdate',
+callback = function()
+  require('nvim-treesitter.parsers').rshtml = {
+    install_info = {
+      url = "https://github.com/rshtml/tree-sitter-rshtml",
+      revision = "2b295f0e52b605f01f2303c729d7d99932ee3290",
+      queries = 'queries/neovim',
+    },
+  }
+end})
+require("nvim-treesitter.install").install({ "html", "rust", "rshtml" })
 
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  group = rshtml_group,
-  pattern = '*.rs.html',
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = "rshtml",
+  once = true,
   callback = function()
-    if vim.bo.filetype ~= "html" then
-      vim.bo.filetype = "html"
-    end
-
-    local clients = vim.lsp.get_active_clients({ name = "rshtml_analyzer" })
-    if #clients == 0 then
-      vim.lsp.enable("rshtml_analyzer")
+    if vim.fn.executable("rshtml-analyzer") ~= 1 then
+      vim.cmd("MasonInstall rshtml-analyzer")
     end
   end,
 })
+vim.lsp.enable("rshtml_analyzer")
 
--- vim.api.nvim_create_autocmd('FileType', {
---   group = rshtml_group,
---   pattern = 'rshtml',
---   callback = function()
---   local clients = vim.lsp.get_active_clients({ name = "rshtml_analyzer" })
---     if #clients == 0 then
---       vim.lsp.enable("rshtml_analyzer")
---     end
---   end,
--- })
-
+vim.lsp.config('html', {
+  filetypes = { 'html', 'rshtml' },
+})
+vim.lsp.enable("html")

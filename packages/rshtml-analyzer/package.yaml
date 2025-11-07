@@ -41,6 +41,3 @@ source:
 
 bin:
   rshtml-analyzer: "{{source.asset.bin}}"
-
-neovim:
-  lspconfig: rshtml_analyzer
