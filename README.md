@@ -13,7 +13,7 @@ If you have `rshtml-analyzer` already installed and available in your system's `
 The server can be downloaded from the [releases](https://github.com/rshtml/rshtml-analyzer/releases) page or use the command below:
 
 ```sh
-cargo install --git https://github.com/rshtml/rshtml-analyzer.git --tag v0.1.5
+cargo install --git https://github.com/rshtml/rshtml-analyzer.git --tag v0.1.6
 ```
 *Note: The tag can be updated according to the version.*
     

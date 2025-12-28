@@ -3,7 +3,7 @@ callback = function()
   require('nvim-treesitter.parsers').rshtml = {
     install_info = {
       url = "https://github.com/rshtml/tree-sitter-rshtml",
-      revision = "2b295f0e52b605f01f2303c729d7d99932ee3290",
+      revision = "363c52c1630c491a5094ef5b369f12b4b858392a",
       queries = 'queries/neovim',
     },
   }
