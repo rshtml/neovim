@@ -1,14 +1,29 @@
-vim.api.nvim_create_autocmd('User', { pattern = 'TSUpdate',
-callback = function()
+vim.filetype.add({
+  extension = {
+    rshtml = "rshtml",
+  },
+})
+
+local function rshtml_ts_setup()
   require('nvim-treesitter.parsers').rshtml = {
     install_info = {
       url = "https://github.com/rshtml/tree-sitter-rshtml",
+      -- path = "/home/m/projects/rshtml/tree-sitter-rshtml",
       revision = "363c52c1630c491a5094ef5b369f12b4b858392a",
       queries = 'queries/neovim',
     },
   }
-end})
+
+  vim.treesitter.language.register('rshtml', 'rshtml')
+end
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TSUpdate',
+  callback = rshtml_ts_setup
+})
 require("nvim-treesitter.install").install({ "html", "rust", "rshtml" })
+
+rshtml_ts_setup()
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "rshtml",
