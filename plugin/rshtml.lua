@@ -9,7 +9,7 @@ local function rshtml_ts_setup()
     install_info = {
       url = "https://github.com/rshtml/tree-sitter-rshtml",
       -- path = "/home/m/projects/rshtml/tree-sitter-rshtml",
-      revision = "a1499c58d4692ec5bc0faed790b4e90ab0fb8996",
+      revision = "5b87e030cb0effa914f35f2c211b9d2fb1276516",
       queries = 'queries/neovim',
     },
   }
